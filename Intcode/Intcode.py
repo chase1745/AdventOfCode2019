@@ -9,9 +9,9 @@ class Intcode:
         return int(str(self.opcodes[self.opPtr]).rjust(5, '0')[-2:])
 
     def saveNewVal(self, index, val):
-        print('saving new val')
-        print('index: {}'.format(index))
-        print('val: {}'.format(val))
+        # print('saving new val')
+        # print('index: {}'.format(index))
+        # print('val: {}'.format(val))
         self.opcodes[index] = val
 
     def getVal(self, index, mode=0):
@@ -49,10 +49,10 @@ class Intcode:
     def opcodeFunc(self, op):
         paramModes = self.getParamModes(self.opcodes[self.opPtr], 5)
         # print('opptr: {}'.format(self.opPtr))
-        print('op: {}'.format(op))
-        print('modes: {}'.format(paramModes))
+        # print('op: {}'.format(op))
+        # print('modes: {}'.format(paramModes))
         params = self.getParams(paramModes, op)
-        print('params: {}'.format(params))
+        # print('params: {}'.format(params))
 
         if op == 1:
             newVal = params[0] + params[1]
@@ -80,8 +80,8 @@ class Intcode:
                 self.opcodes[1], self.opcodes[2] = resetVals
 
             while self.op() != 99:
-                print(self.opcodes[self.opPtr:self.opPtr+10])
-                print(self.opPtr)
+                # print(self.opcodes[self.opPtr:self.opPtr+10])
+                # print(self.opPtr)
                 incNum = self.opcodeFunc(self.op())
                 self.opPtr += incNum
 
